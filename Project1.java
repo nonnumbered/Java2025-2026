@@ -6,8 +6,36 @@ public class Project1 {
         Scanner input = new Scanner(System.in);
         boolean loggedIn = usernameAndPassword(input);
         if (loggedIn == true) {
-            studentInfo(input);
-            assignments(input);
+            System.out.print("Enter the students name: ");
+            String name = input.nextLine();
+            System.out.print("Enter the students age: ");
+            int age = input.nextInt();
+            System.out.print("Enter the students number of absences: ");
+            int numOfAbsences = input.nextInt();
+            System.out.print("Enter the students tardies: ");
+            int numOfTardies = input.nextInt();
+            System.out.print("Enter the students AP exam score: ");
+            int apExamScore = input.nextInt();
+            input.nextLine();
+            double grade = assignments(input);
+            
+            
+            
+            if (grade >= 70) {
+                if (grade >= 80 && apExamScore >= 4) {
+                    System.out.println("The student has passed the class with honors");
+                } else {
+                    System.out.println("The student has passed the class");
+                }
+                if (haveToTakeSemesterExam(numOfAbsences, numOfTardies) == true) {
+                    System.out.println("The student has to take the semester exam");
+                } else {
+                    System.out.println("The student does not have to take the semester exam");
+                }
+            } else {
+                System.out.println("The student has failed the class");
+                
+            }
         }
         input.close();
     }
@@ -26,20 +54,8 @@ public class Project1 {
             }
             
         }
-        public static void studentInfo(Scanner input) {
-            System.out.print("Enter the students name: ");
-            String name = input.nextLine();
-            System.out.print("Enter the students age: ");
-            int age = input.nextInt();
-            System.out.print("Enter the students number of absences: ");
-            int numOfAbsences = input.nextInt();
-            System.out.print("Enter the students tardies: ");
-            int numOfTardies = input.nextInt();
-            System.out.print("Enter the students AP exam score: ");
-            double apExamScore = input.nextDouble();
-            input.nextLine();
-        }
-        public static void assignments(Scanner input) {
+       
+        public static double assignments(Scanner input) {
             System.out.println("enter in the grade of 2 homework assignments");
             double homework1 = input.nextDouble();
             double homework2 = input.nextDouble();
@@ -60,6 +76,14 @@ public class Project1 {
 
             double q2Grade = homeworkWeighted + quizWeighted + testWeighted;
             System.out.println("The students grade for q2 is " + q2Grade);
+            return q2Grade;
+        }
+
+        public static boolean haveToTakeSemesterExam(int numOfAbsences, int numOfTardies) {
+            if (numOfAbsences >= 5 || numOfTardies >= 10 ) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
-
