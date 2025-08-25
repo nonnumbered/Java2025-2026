@@ -6,6 +6,7 @@ public class Project1 {
         Scanner input = new Scanner(System.in);
         boolean loggedIn = usernameAndPassword(input);
         if (loggedIn == true) {
+            double q1Grade= 80.0;
             System.out.print("Enter the students name: ");
             String name = input.nextLine();
             System.out.print("Enter the students age: ");
@@ -17,20 +18,26 @@ public class Project1 {
             System.out.print("Enter the students AP exam score: ");
             int apExamScore = input.nextInt();
             input.nextLine();
-            double grade = assignments(input);
+
+            double q2grade = assignments(input);
+            System.out.print("enter in the grade of the semester exam: ");
+            int semesterExamGrade = input.nextInt();
+            double totalGrade = (q1Grade * 0.40 ) + (q2grade * 0.40) + (semesterExamGrade * 0.20);
+            System.out.println("The students total grade is " + totalGrade);
             
-            
-            
-            if (grade >= 70) {
-                if (grade >= 80 && apExamScore >= 4) {
-                    System.out.println("The student has passed the class with honors");
-                } else {
-                    System.out.println("The student has passed the class");
-                }
+            if (q2grade >= 70) {
+                
                 if (haveToTakeSemesterExam(numOfAbsences, numOfTardies) == true) {
                     System.out.println("The student has to take the semester exam");
+                    System.out.println("enter in the grade of the semester exam");
+                    
                 } else {
                     System.out.println("The student does not have to take the semester exam");
+                }
+                if (q2grade >= 80 && apExamScore >= 4) {
+                    System.out.println("The student has passed the class with honors with the grade of " + q2grade);
+                } else {
+                    System.out.println("The student has passed the class with the grade of " + q2grade);
                 }
             } else {
                 System.out.println("The student has failed the class");
@@ -45,7 +52,7 @@ public class Project1 {
             String username = input.nextLine();
             System.out.print("password: ");
             String password = input.nextLine();
-            if (username.equals("simpsonL") && password.equals("PiDay314")) {
+            if (username.equals("simpsonL".trim()) && password.equals("PiDay314".trim())) {
                 System.out.println("Welcome, " + username);
                 return true;
             } else {
