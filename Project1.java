@@ -93,4 +93,15 @@ public class Project1 {
                 return false;
             }
         }
+        public static int scholarshipOpportunities(double totalGrade, int numOfAbsences, int numOfTardies, int apExamScore, int age) {
+            int opportunities = 0;
+            if () {
+                opportunities += 3;
+            } else if () {
+                opportunities += 2;
+            } else if () {
+                opportunities += 1;
+            }
+            return opportunities;
+        }
     }
