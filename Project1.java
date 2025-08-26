@@ -93,15 +93,14 @@ public class Project1 {
                 return false;
             }
         }
-        public static int scholarshipOpportunities(double totalGrade, int numOfAbsences, int numOfTardies, int apExamScore, int age) {
-            int opportunities = 0;
-            if () {
-                opportunities += 3;
-            } else if () {
-                opportunities += 2;
-            } else if () {
-                opportunities += 1;
+        public static void scholarshipOpportunities(double totalGrade, int numOfAbsences, int numOfTardies, int apExamScore, int age, String name) {
+            if (numOfAbsences == 0 && numOfTardies == 0 && totalGrade >= 70 && apExamScore >= 3 && age >= 14) {
+                System.out.println(name +" is elegible for The Perfect Presence Award");
+            } else if (numOfAbsences+ numOfTardies < 8 && totalGrade >= 80 && apExamScore >= 3 && age >= 16) {
+                System.out.println(name +" is elegible for The AP excellence award" );
+            } else if (totalGrade >= 90 && apExamScore <= 5 && age >= 15)  {
+                System.out.println(name +" is elegible for The Penserga Pinacle Prize");
             }
-            return opportunities;
+            
         }
     }
