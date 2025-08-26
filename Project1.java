@@ -35,9 +35,12 @@ public class Project1 {
                     System.out.println("The student does not have to take the semester exam");
                 }
                 if (q2grade >= 80 && apExamScore >= 4) {
-                    System.out.println("The student has passed the class with honors with the grade of " + q2grade);
+                    
+                    System.out.println("The student has passed the class with honors with the grade of " + totalGrade);
+                  scholarshipOpportunities(totalGrade, numOfAbsences, numOfTardies, apExamScore, age, name);
                 } else {
-                    System.out.println("The student has passed the class with the grade of " + q2grade);
+                    System.out.println("The student has passed the class with the grade of " + totalGrade);
+                  scholarshipOpportunities(totalGrade, numOfAbsences, numOfTardies, apExamScore, age, name);
                 }
             } else {
                 System.out.println("The student has failed the class");
@@ -45,6 +48,7 @@ public class Project1 {
             }
         }
         input.close();
+      
     }
 
     public static boolean usernameAndPassword(Scanner input) {
@@ -94,13 +98,35 @@ public class Project1 {
             }
         }
         public static void scholarshipOpportunities(double totalGrade, int numOfAbsences, int numOfTardies, int apExamScore, int age, String name) {
+            
+            
+            
+            
+            
+            int moneyAwarded = 0;
+            
+            
             if (numOfAbsences == 0 && numOfTardies == 0 && totalGrade >= 70 && apExamScore >= 3 && age >= 14) {
                 System.out.println(name +" is elegible for The Perfect Presence Award");
-            } else if (numOfAbsences+ numOfTardies < 8 && totalGrade >= 80 && apExamScore >= 3 && age >= 16) {
+                moneyAwarded += 10000;
+            } 
+           
+           
+           
+           
+            else if (numOfAbsences+ numOfTardies < 8 && totalGrade >= 80 && apExamScore >= 4 && age >= 16) {
+            
                 System.out.println(name +" is elegible for The AP excellence award" );
-            } else if (totalGrade >= 90 && apExamScore <= 5 && age >= 15)  {
+                moneyAwarded += 20000;
+            
+            
+            } 
+
+            else if (totalGrade >= 90 && apExamScore >= 5 && age >= 15)  {
                 System.out.println(name +" is elegible for The Penserga Pinacle Prize");
+                moneyAwarded += 50000;
             }
+            System.out.println("the total amount of money awarded is "+moneyAwarded);
             
         }
     }
