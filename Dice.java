@@ -9,6 +9,7 @@ public class Dice {
             System.out.println("The sum is 7 or higher");
         } else {
             System.out.println("The sum is not higher than 7");
+
         }
     }
 }

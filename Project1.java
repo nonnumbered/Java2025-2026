@@ -24,18 +24,18 @@ public class Project1 {
             int semesterExamGrade = input.nextInt();
             double totalGrade = (q1Grade * 0.40 ) + (q2grade * 0.40) + (semesterExamGrade * 0.20);
             System.out.println("The students total grade is " + totalGrade);
-            
+
             if (q2grade >= 70) {
-                
+
                 if (haveToTakeSemesterExam(numOfAbsences, numOfTardies) == true) {
                     System.out.println("The student has to take the semester exam");
                     System.out.println("enter in the grade of the semester exam");
-                    
+
                 } else {
                     System.out.println("The student does not have to take the semester exam");
                 }
                 if (q2grade >= 80 && apExamScore >= 4) {
-                    
+
                     System.out.println("The student has passed the class with honors with the grade of " + totalGrade);
                   scholarshipOpportunities(totalGrade, numOfAbsences, numOfTardies, apExamScore, age, name);
                 } else {
@@ -44,11 +44,11 @@ public class Project1 {
                 }
             } else {
                 System.out.println("The student has failed the class");
-                
+
             }
         }
         input.close();
-      
+
     }
 
     public static boolean usernameAndPassword(Scanner input) {
@@ -61,23 +61,23 @@ public class Project1 {
                 return true;
             } else {
                 System.out.println("Invalid username or password");
-                return false;  
+                return false;
             }
-            
+
         }
-       
+
         public static double assignments(Scanner input) {
             System.out.println("enter in the grade of 2 homework assignments");
             double homework1 = input.nextDouble();
             double homework2 = input.nextDouble();
-            System.out.println("enter in the grade of 2 quizzes"); 
+            System.out.println("enter in the grade of 2 quizzes");
             double quiz1 = input.nextDouble();
             double quiz2 = input.nextDouble();
             System.out.println("enter in the grade of 2 tests");
             double test1 = input.nextDouble();
             double test2 = input.nextDouble();
-            
-            
+
+
             double homeworkAverage = (homework1 + homework2) / 2.0;
             double homeworkWeighted = homeworkAverage * 0.60;
             double quizAverage = (quiz1 + quiz2) / 2.0;
@@ -98,35 +98,35 @@ public class Project1 {
             }
         }
         public static void scholarshipOpportunities(double totalGrade, int numOfAbsences, int numOfTardies, int apExamScore, int age, String name) {
-            
-            
-            
-            
-            
+
+
+
+
+
             int moneyAwarded = 0;
-            
-            
+
+
             if (numOfAbsences == 0 && numOfTardies == 0 && totalGrade >= 70 && apExamScore >= 3 && age >= 14) {
                 System.out.println(name +" is elegible for The Perfect Presence Award");
                 moneyAwarded += 10000;
-            } 
-           
-           
-           
-           
+            }
+
+
+
+
             else if (numOfAbsences+ numOfTardies < 8 && totalGrade >= 80 && apExamScore >= 4 && age >= 16) {
-            
+
                 System.out.println(name +" is elegible for The AP excellence award" );
                 moneyAwarded += 20000;
-            
-            
-            } 
+
+
+            }
 
             else if (totalGrade >= 90 && apExamScore >= 5 && age >= 15)  {
                 System.out.println(name +" is elegible for The Penserga Pinacle Prize");
                 moneyAwarded += 50000;
             }
             System.out.println("the total amount of money awarded is "+moneyAwarded);
-            
+
         }
     }
