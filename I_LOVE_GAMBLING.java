@@ -13,9 +13,11 @@ public class I_LOVE_GAMBLING {
 		String[] random = new String[3];
 		String[] guess = new String[3];
 		Scanner input = new Scanner(System.in);
+	boolean continuePlaying = true;
 		
-
+	while (continuePlaying) {
 		// betting
+		continuePlaying = false;
 		System.out.print("Enter a bet amount: ");
 		float bet_amount = (float) input.nextFloat();
 
@@ -122,6 +124,40 @@ public class I_LOVE_GAMBLING {
 			System.out.println("You lose all of them and your balance is now $" + (money));
 			
 		}
+		System.out.println("what would you like to do next? (play, deposit, quit)");
+		input.nextLine();
+		String action = input.nextLine();
+
+		if (action.equals("play")) {
+			continuePlaying = true;
+		} else if (action.equals("deposit")) {
+			System.out.print("Enter a deposit amount: ");
+			float deposit_amount = 0;
+			boolean validDeposit = false;
+			while (!validDeposit) {
+				String depositInput = input.nextLine();
+				try {
+					deposit_amount = Float.parseFloat(depositInput);
+					if (deposit_amount > 0) {
+						validDeposit = true;
+					} else {
+						System.out.println("Enter a valid deposit amount: ");
+					}
+				} catch (NumberFormatException e) {
+					System.out.println("Enter a valid deposit amount: ");
+				}
+			}
+			money += deposit_amount;
+			System.out.println("You have deposited $" + deposit_amount);
+		} else if (action.equals("quit")) {
+			System.out.println("Thanks for playing!");
+			continuePlaying = false;
+		}
+	}
+
+
+
+		input.close();
 	}
 
 	
